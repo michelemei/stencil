@@ -6,7 +6,7 @@ It is boring to have serialized data in binary format. To deserialize them in cl
 ## Features
 
 Simple struct creation unsing `atom` and `pack` defines. E.g.:
-```
+```c++
 struct point : michelemei::stencil<point> {
     using x = atom(double);
     using y = atom(double);
@@ -15,13 +15,13 @@ struct point : michelemei::stencil<point> {
 };
 ```
 Access data quickly: the position of datas in the binary stream is computed at compile-time. E.g.:
-```
+```c++
 std::cout << "X = " << pt.get<point::x>() << std::endl; // get the x coordinate of pt
 ln.set<line::start, point::y>(1.2); // set the y coordinate starting point in ln
 ```
 
 A simple and fast syntax to serialize and deserilize data:
-```
+```c++
 // line is a class/struct inheriting from stencil
 // my_line is ad instance of line
 
